@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57746492d507b4a3172ffd765ed33a70",
+    "content-hash": "68c51750d50365b3ae66d0e73fd80c71",
     "packages": [
         {
             "name": "2amigos/yii2-arrayquery-component",
@@ -120,7 +120,7 @@
             "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
+                "url": "git@github.com:twbs/bootstrap.git",
                 "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "dist": {

@@ -21,6 +21,14 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+
+    <style>
+      #top{
+        margin-top: 0px;
+      }
+    </style>
+
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -28,7 +36,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Jasiri</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,19 +50,9 @@ AppAsset::register($this);
         <li class="nav-item">
         <a class="nav-link" href="http://localhost/police/police/report">report</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+        
         <li class="nav-item">
-        <a class="nav-link" href="http://localhost/police/police/report">make new report</a>
+        <a class="nav-link" href="http://localhost/police/report/create">make new report</a>
         </li>
       </ul>
       <form class="d-flex">

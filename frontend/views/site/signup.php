@@ -11,6 +11,7 @@ $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
+<section id="main-content">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>Please fill out the following fields to signup:</p>
@@ -33,3 +34,4 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+</section>
