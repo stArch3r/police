@@ -30,12 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'reportId',
+            'userId',
             'title',
-            'firstName',
-            'secondName',
             'description:ntext',
             'createdAt',
-            'file',
             'county',
             'country',
             'tags',

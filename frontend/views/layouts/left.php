@@ -25,7 +25,12 @@
                             <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">data</span>
                         </a>
-  
+                        <div class="nav__list">
+                    <a class="nav-link" href="http://localhost/police/police/list">
+                        
+                            <ion-icon name="document-outline" class="nav__icon"></ion-icon>
+                            <span class="nav__name">list</span>
+                        </a>
                         <div  class="nav__link collapse">
                             <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">Projects</span>
@@ -40,8 +45,8 @@
                         </div>
                         
   
-                        <a href="http://localhost/police/police/swift" class="nav__link">
-                            <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
+                        <a href="http://localhost/police/police/list" class="nav__link">
+                            <ion-icon name="document-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">reports</span>
                         </a>
                        

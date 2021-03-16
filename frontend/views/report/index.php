@@ -10,9 +10,6 @@ use yii\grid\GridView;
 $this->title = 'Reports';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<section id="main-content">
-
-
 <div class="report-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -30,12 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'reportId',
-            'firstName',
+            'userId',
             'title',
-            'secondName',
-            'description',
-            //'createdAt',
-            //'file',
+            'description:ntext',
+            'createdAt',
             //'county',
             //'country',
             //'tags',
@@ -46,4 +41,3 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 </div>
-    </section>

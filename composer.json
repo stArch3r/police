@@ -20,7 +20,13 @@
         "yiisoft/yii2-bootstrap4": "^2.0",
         "dmstr/yii2-adminlte-asset": "^2.1",
         "kartik-v/yii2-nav-x": "dev-master",
-        "yii2mod/yii2-rbac": "^2.3"
+        "yii2mod/yii2-rbac": "^2.3",
+        "wbraganca/yii2-dynamicform": "^2.0",
+        "yiisoft/yii2-jui": "^2.0",
+        "kartik-v/yii2-widget-fileinput": "dev-master",
+        "devgroup/yii2-dropzone": "^1.0",
+        "perminder-klair/yii2-dropzone": "dev-master",
+        "2amigos/yii2-file-upload-widget": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

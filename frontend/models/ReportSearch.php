@@ -17,8 +17,8 @@ class ReportSearch extends Report
     public function rules()
     {
         return [
-            [['reportId', 'county', 'country'], 'integer'],
-            [['title', 'firstName', 'secondName', 'description', 'createdAt', 'file', 'tags'], 'safe'],
+            [['reportId', 'userId', 'county', 'country'], 'integer'],
+            [['title', 'description', 'createdAt', 'tags'], 'safe'],
         ];
     }
 
@@ -59,16 +59,14 @@ class ReportSearch extends Report
         // grid filtering conditions
         $query->andFilterWhere([
             'reportId' => $this->reportId,
+            'userId' => $this->userId,
             'createdAt' => $this->createdAt,
             'county' => $this->county,
             'country' => $this->country,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'firstName', $this->firstName])
-            ->andFilterWhere(['like', 'secondName', $this->secondName])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'file', $this->file])
             ->andFilterWhere(['like', 'tags', $this->tags]);
 
         return $dataProvider;

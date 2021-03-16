@@ -10,6 +10,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use frontend\models\Photos;
 use yii\web\UploadedFile;
+use kartik\widgets\FileInput;
+
+use frontend\models\Video;
 
 /**
  * ReportController implements the CRUD actions for Report model.
@@ -56,6 +59,7 @@ class ReportController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            
         ]);
     }
 
@@ -67,59 +71,75 @@ class ReportController extends Controller
     public function actionCreate()
     {
         $model = new Report();
+        $photos = new Photos();
+        $video = new Video();
+  
 
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->reportId]);
+        // }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->reportId]);
+            if($this->saveImage($model->reportId,Yii::$app->request->post()['Photos'])){
+                return $this->redirect(['views/police/index']);
+            }
+            else{
+                if($this->saveVideo($model->reportId,Yii::$app->request->post()['Video'])){
+                    return $this->redirect(['views/police/index']);
+                }
+            }
+          
         }
-
         return $this->render('create', [
             'model' => $model,
-        ]);
+            'photos'=> $photos,
+            'video' => $video,           
+             ]);
+        
+
     }
-
-    public function actionAddphotos()
-{
-    $model = new \frontend\models\Photos();
-    if ($model->load(Yii::$app->request->post())) 
-    {
-        //generates images with unique names
-        $imageName = bin2hex(openssl_random_pseudo_bytes(10));
-        $model->imagePath = UploadedFile::getInstance($model, 'imagePath');
-        //saves file in the root directory
-        $model->imagePath->saveAs('uploads/'.$imageName.'.'.$model->imagePath->extension);
-        //save in the db
-        $model->imagePath = 'uploads/' .$imageName.'.'.$model->imagePath->extension;
-        $model->save(false);
-            return $this->redirect(['index']);
-        }
     
-        return $this->render('addphotos', [
-            'model' => $model,
-            
-    ]);
-
-}
-public function actionAddvideo()
-{
-    $model = new \frontend\models\Video();
-    if ($model->load(Yii::$app->request->post())) 
+    public function saveImage($reportId,$imagedata)
     {
-        //generates images with unique names
-        $videoName = bin2hex(openssl_random_pseudo_bytes(10));
-        $model->video = UploadedFile::getInstance($model, 'video');
-        //saves file in the root directory
-        $model->video->saveAs('uploads/'.$videoName.'.'.$model->video->extension);
-        //save in the db
-        $model->video = 'uploads/' .$videoName.'.'.$model->video->extension;
-        $model->save(false);
-            return $this->redirect(['index']);
-        }
-    
-        return $this->render('addvideo', [
-            'model' => $model,
-            
-    ]);
-        }
+         $model = new Photos();
+         if($model->load(["Photos"=>['imagePath'=>$imagedata['imagePath']]])){
+             //generates images with unique names
+             $imageName = bin2hex(openssl_random_pseudo_bytes(10));
+             $model->imagePath = UploadedFile::getInstance($model, 'imagePath');
+             //saves file in the root directory
+             $model->imagePath->saveAs('uploads/'.$imageName.'.'.$model->imagePath->extension);
+             //save in the db
+             $model->imagePath='uploads/'.$imageName.'.'.$model->imagePath->extension;
+             $model->reportId = $reportId;
+             $model->save(false);
+        //  if
+        //      ($model->save(false)){
+        //          return true;
+        //      }
+         }
+         return false;
+     }
+
+     public function saveVideo($reportId,$videodata)
+     {
+          $model = new Video();
+          if($model->load(["Video"=>['video'=>$videodata['video']]])){
+              //generates images with unique names
+              $videoName = bin2hex(openssl_random_pseudo_bytes(10));
+              $model->video = UploadedFile::getInstance($model, 'video');
+              //saves file in the root directory
+              $model->video->saveAs('uploads/'.$videoName.'.'.$model->video->extension);
+              //save in the db
+              $model->video='uploads/'.$videoName.'.'.$model->video->extension;
+              $model->reportId = $reportId;
+              $model->save(false);
+         //  if
+         //      ($model->save(false)){
+         //          return true;
+         //      }
+          }
+          return false;
+      }
+        
     /**
      * Updates an existing Report model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -127,6 +147,7 @@ public function actionAddvideo()
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+    
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);

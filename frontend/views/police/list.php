@@ -47,14 +47,14 @@ use yii\helpers\Html;
                             <div class="card-body">
                               <h5 class="card-title"> Kayole</h5>
                               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                              <a href="listView.html" class="btn btn-primary">see more</a>
+                              <a href="http://localhost/police/police/report" class="btn btn-primary">see more</a>
                             </div>
                           </div>
                           <div class="card w-75 season">
                             <div class="card-body">
                               <h5 class="card-title">Huruma</h5>
                               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                              <a href="listView.html" class="btn btn-primary">see more</a>
+                              <a href="http://localhost/police/police/report" class="btn btn-primary">see more</a>
                             </div>
                           </div>
                                                     
@@ -62,7 +62,7 @@ use yii\helpers\Html;
                             <div class="card-body">
                               <h5 class="card-title">Bamburi</h5>
                               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                              <a href="listView.html" class="btn btn-primary">see more</a>
+                              <a href="http://localhost/police/police/report" class="btn btn-primary">see more</a>
                             </div>
                           </div>
                           
@@ -70,7 +70,7 @@ use yii\helpers\Html;
                             <div class="card-body">
                               <h5 class="card-title">Moyale</h5>
                               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                              <a href="listView.html" class="btn btn-primary">see more</a>
+                              <a href="http://localhost/police/police/report" class="btn btn-primary">see more</a>
                             </div>
                           </div>
                           

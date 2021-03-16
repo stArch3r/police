@@ -8,12 +8,10 @@ use Yii;
  * This is the model class for table "report".
  *
  * @property int $reportId
- * @property string $firstName
+ * @property int $userId
  * @property string $title
- * @property string $secondName
  * @property string $description
  * @property string $createdAt
- * @property string $file
  * @property int $county
  * @property int $country
  * @property string $tags
@@ -21,6 +19,7 @@ use Yii;
  * @property Photos[] $photos
  * @property Countries $country0
  * @property County $county0
+ * @property User $user
  * @property Video[] $videos
  */
 class Report extends \yii\db\ActiveRecord
@@ -39,15 +38,15 @@ class Report extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['firstName', 'title', 'secondName', 'description', 'file', 'county', 'country', 'tags'], 'required'],
+            [['userId', 'title', 'description', 'county', 'country', 'tags'], 'required'],
+            [['userId', 'county', 'country'], 'integer'],
+            [['description'], 'string'],
             [['createdAt'], 'safe'],
-            [['county', 'country'], 'integer'],
-            [['firstName', 'secondName'], 'string', 'max' => 20],
             [['title'], 'string', 'max' => 200],
-            [['description'], 'string', 'max' => 400],
-            [['file', 'tags'], 'string', 'max' => 255],
+            [['tags'], 'string', 'max' => 255],
             [['country'], 'exist', 'skipOnError' => true, 'targetClass' => Countries::className(), 'targetAttribute' => ['country' => 'countryId']],
             [['county'], 'exist', 'skipOnError' => true, 'targetClass' => County::className(), 'targetAttribute' => ['county' => 'countyId']],
+            [['userId'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['userId' => 'id']],
         ];
     }
 
@@ -58,12 +57,10 @@ class Report extends \yii\db\ActiveRecord
     {
         return [
             'reportId' => 'Report ID',
+            'userId' => 'User ID',
             'title' => 'Title',
-            'firstName' => 'First Name',
-            'secondName' => 'Second Name',
             'description' => 'Description',
             'createdAt' => 'Created At',
-            'file' => 'File',
             'county' => 'County',
             'country' => 'Country',
             'tags' => 'Tags',
@@ -98,6 +95,16 @@ class Report extends \yii\db\ActiveRecord
     public function getCounty0()
     {
         return $this->hasOne(County::className(), ['countyId' => 'county']);
+    }
+
+    /**
+     * Gets query for [[User]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'userId']);
     }
 
     /**

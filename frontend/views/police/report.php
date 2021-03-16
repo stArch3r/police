@@ -32,7 +32,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Kahawa</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">read more</a>
+                      <a href="http://localhost/police/police/report" class="btn btn-primary">read more</a>
                     </div>
                   </div>
                   <div class="card" style="width: 18rem; margin-top: 9px;">
@@ -40,7 +40,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Nyali</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">read more</a>
+                      <a href="http://localhost/police/police/report" class="btn btn-primary">read more</a>
                     </div>
                   </div>
                   <div class="card" style="width: 18rem; margin-top: 9px;">
@@ -48,12 +48,12 @@
                     <div class="card-body">
                       <h5 class="card-title">Kayole</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">read more</a>
+                      <a href="http://localhost/police/police/report" class="btn btn-primary">read more</a>
                     </div>
                   </div>
             </div>
             <div class="col-sm-7" style="margin-top: 9px;">
-            <div class="container" style="background-color: rgb(122, 139, 139);">
+            <div class="container" style="background-color: rgb(204, 214, 201);">
                 <div class="row">
                     <H1>
                         Karen C incident report

@@ -70,7 +70,10 @@ AppAsset::register($this);
             
         )
         ?>
-<?= $content ?>
+        <div class="wrap">
+        <?= $content ?>
+        </div>
+
 
 
 <?php $this->endBody() ?>
