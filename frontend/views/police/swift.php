@@ -5,72 +5,75 @@
 <title>jasiri</title>
 
 <head>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-
-        }
-    </style>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<style>
+  #container {
+	height: 300px;
+	min-width: 310px;
+	max-width: 800px;
+}
+</style>
 </head>
 
-    <div class="row">
-        <div class="col-sm-12">
+<div id="container"></div>
 
-            
+<?php $this->registerJs("
+const chart = Highcharts.chart('container', {
+  chart: {
+      type: 'column'
+  },
+  title: {
+      text: 'Highcharts responsive chart'
+  },
+  subtitle: {
+      text: 'Resize the frame to see the legend position change'
+  },
+  legend: {
+      align: 'right',
+      verticalAlign: 'middle',
+      layout: 'vertical'
+  },
+  xAxis: {
+      categories: ['Apples', 'Oranges', 'Bananas']
+  },
+  yAxis: {
+      title: {
+          text: 'Amount'
+      }
+  },
+  series: [{
+      name: 'Christmas Eve',
+      data: [1, 4, 3]
+  }, {
+      name: 'Christmas Day before dinner',
+      data: [6, 4, 2]
+  }, {
+      name: 'Christmas Day after dinner',
+      data: [8, 4, 3]
+  }],
+  responsive: {
+      rules: [{
+          condition: {
+              maxWidth: 500
+          },
+          chartOptions: {
+              legend: {
+                  align: 'center',
+                  verticalAlign: 'bottom',
+                  layout: 'horizontal'
+              }
+          }
+      }]
+  }
+});
 
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h5 style="margin-left: 6.6em;"> <b>Incident Report</b> </h5>
-                    
-            </div>
-            <div class="col-md-8">
-                <h5> detailed report</h5>
-                <div class="row">
-                    
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                    </div>
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="comment">Comment:</label>
-                    <textarea class="form-control" rows="5" placeholder="type here" id="comment"></textarea>
-                  </div>
-                  
-                  <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="inputGroupFile02">
-                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      use current location
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                      add location
-                    </label>
-                  </div>
+document.getElementById('small').addEventListener('click', () => {
+  chart.setSize(400, 300);
+});
 
-                  <button type="button" class="btn btn-dark">sumbit</button>
+document.getElementById('large').addEventListener('click', () => {
+  chart.setSize(600, 300);
+});
 
-                  
-             
+")?>
 
-            </div>
-        </div>
-
-</body>
-
-</html>
-</div>

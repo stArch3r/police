@@ -4,17 +4,7 @@
 <title>jasiri</title>
 
 <head>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-
-        }
-    </style>
+    
 </head>
 
 <body id="body-pd">

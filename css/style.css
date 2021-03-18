@@ -1,5 +1,3 @@
-#map { position: absolute;
-     top: 0; bottom: 0; width: 100%; }
 
 .body{
     height: device-height;
@@ -16,6 +14,9 @@
     background-color: #f1c403;
     margin-top: 25px;
    
+}
+.juu{
+  margin-top: 14px;
 }
 
 .taylor{

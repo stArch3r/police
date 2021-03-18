@@ -1,5 +1,6 @@
 <?php
-
+use yii\helpers\Html;
+use yii\grid\GridView;
 ?>
 <div class="wrap">
 <style>
@@ -29,38 +30,42 @@
                       </div>
     
                 </div>
-            <div class="col-md-8">
+            <div class="col-md-8  juu">
                                                                     
                 <div class="card w-75 season">
                     <div class="card-body">
                       <h5 class="card-title">Bamburi</h5>
                       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="listView.html" class="btn btn-primary">see more</a>
+                      <a href="listView.html" class="btn btn-danger">approve</a>
+                      <a href="listView.html" class="btn btn-success">reject</a>
                     </div>
                   </div>
                                                                       
-                  <div class="card w-75 season">
+                  <div class="card w-75 juu">
                     <div class="card-body">
                       <h5 class="card-title">Bamburi</h5>
                       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="listView.html" class="btn btn-primary">see more</a>
+                      <a href="listView.html" class="btn btn-danger">approve</a>
+                      <a href="listView.html" class="btn btn-success">reject</a>
                     </div>
                   </div>
                                                                       
-                  <div class="card w-75 season">
+                  <div class="card w-75 juu">
                     <div class="card-body">
                       <h5 class="card-title">Bamburi</h5>
                       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="listView.html" class="btn btn-primary">see more</a>
+                      <a href="listView.html" class="btn btn-danger">approve</a>
+                      <a href="listView.html" class="btn btn-success">reject</a>
                     </div>
                   </div>
 
                 
-                    <div class="card w-75 season">
+                    <div class="card w-75 juu">
                         <div class="card-body">
                           <h5 class="card-title">Bamburi</h5>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="listView.html" class="btn btn-primary">see more</a>
+                          <a href="listView.html" class="btn btn-danger">approve</a>
+                      <a href="listView.html" class="btn btn-success">reject</a>
                         </div>
                       </div>
                 </div>
@@ -80,7 +85,20 @@
               
             <!----------------------------------------------------------Table--------------------------------------------------->
     <div class="container see">
-        <table class="table table-hover table-responsive-sm " >
+
+    <?= GridView::widget([
+        'dataProvider'=> $dataProvider,
+        'columns'=>[
+            'userId',
+            'reportId',
+              'title',
+              'county',
+              'createdAt',
+
+        ]
+
+    ])?>
+        <!-- <table class="table table-hover table-responsive-sm " >
             <thead>
                 <tr class="table-active">
                     <th scope="col">#</th>
@@ -153,61 +171,11 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
     <!-----------------------------------------x----------------Table----------------------x---------------------------->
         </div>
     </div>
 
-
-             <!-- Site footer -->
-             <footer class="site-footer rir">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                      <h6>About</h6>
-                      <p class="text-justify">Jasiri <i> Wants to help change </i> how the police serve and deligate their duties , police brutality isn't one of them</p>
-                    </div>
-          
-                    <div class="col-xs-6 col-md-3">
-                      <h6>Categories</h6>
-                      <ul class="footer-links">
-                        <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-                        <li><a href="http://scanfcode.com/category/front-end-development/">reports</a></li>
-                        <li><a href="http://scanfcode.com/category/back-end-development/">data</a></li>
-                    
-                      </ul>
-                    </div>
-          
-                    <div class="col-xs-6 col-md-3">
-                      <h6>Quick Links</h6>
-                      <ul class="footer-links">
-                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                        <li><a href="http://scanfcode.com/contribute-at-scanfcode/">report incident</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <hr>
-                </div>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                      <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by 
-                   <a href="#">Jasiri</a>.
-                      </p>
-                    </div>
-          
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                      <ul class="social-icons">
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-          </footer>
 
     </body>
 </div>

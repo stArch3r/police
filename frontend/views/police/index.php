@@ -1,32 +1,36 @@
 <?php
-/* @var $this yii\web\View */
-?>
-<div class="wrap">
 
-<html lang="en">
-  <head>
-    
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />    <script type="module" src="app.js"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-       <!--
-       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-       -->
+use yii\helpers\Url;
+use yii\helpers\Html;
+use frontend\models\Productimages;
+use frontend\models\Report;
+use frontend\models\Photos;
+use frontend\models\Video;
+$report = Report::find()->joinWith('Photos')->all();
+?>
+
+
+  </head>
   
-    <title>jasiri</title>
-    <style>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<style>
+  #container {
+	height: 300px;
+	min-width: 310px;
+	max-width: 800px;
+}
+</style>
+<style>
       #map{
           width:65vw;
           height: 70vh;
       }
   </style>
-  </head>
   <section id="main-content">
   <body>
       <!-- content section -->
       <div class="row" style="margin-top: 20px;">
-          <div class="col-md-8" style="margin-top: 10px;">
+          <div class="col-md-6" style="margin-top: 10px;">
             <div id="map"></div>
             <script>
               mapboxgl.accessToken = 'pk.eyJ1Ijoia2VubXVuZW5lIiwiYSI6ImNrbGFmaXpvYjBrdXUydnM4Y2wzeWFtaHUifQ.TYNHNVNrfF0OKuDQ58ulAw';
@@ -44,29 +48,79 @@
           </div>
           <!-- table section -->
           <div class="col-md-4" style="margin-top: 10px;">
-            <section class="panel">
-                        <header class="panel-heading">
-                            Area Chart
-                        <span class="tools pull-right">
-                            <a href="javascript:;" class="fa fa-chevron-down"></a>
-                            <a href="javascript:;" class="fa fa-cog"></a>
-                            <a href="javascript:;" class="fa fa-times"></a>
-                         </span>
-                        </header>
-                        <div class="panel-body">
-                            <div id="graph-area-line"></div>
-                        </div>
-                    </section>
+          
+
+          <div id="container"></div>
+
+<?php $this->registerJs("
+const chart = Highcharts.chart('container', {
+  chart: {
+      type: 'column'
+  },
+  title: {
+      text: 'Highcharts responsive chart'
+  },
+  subtitle: {
+      text: 'Resize the frame to see the legend position change'
+  },
+  legend: {
+      align: 'right',
+      verticalAlign: 'middle',
+      layout: 'vertical'
+  },
+  xAxis: {
+      categories: ['Apples', 'Oranges', 'Bananas']
+  },
+  yAxis: {
+      title: {
+          text: 'Amount'
+      }
+  },
+  series: [{
+      name: 'Christmas Eve',
+      data: [1, 4, 3]
+  }, {
+      name: 'Christmas Day before dinner',
+      data: [6, 4, 2]
+  }, {
+      name: 'Christmas Day after dinner',
+      data: [8, 4, 3]
+  }],
+  responsive: {
+      rules: [{
+          condition: {
+              maxWidth: 500
+          },
+          chartOptions: {
+              legend: {
+                  align: 'center',
+                  verticalAlign: 'bottom',
+                  layout: 'horizontal'
+              }
+          }
+      }]
+  }
+});
+
+document.getElementById('small').addEventListener('click', () => {
+  chart.setSize(400, 300);
+});
+
+document.getElementById('large').addEventListener('click', () => {
+  chart.setSize(600, 300);
+});
+
+")?>
 
 
             
           </div>
       </div>
       <!-- incident report -->
-
+      <?php foreach ($products as $product) {?>
       <div class="row">
-        <div class="col-md-12 rir"> <b><strong>Incident Reports</strong></b> </div>
-        <div class="col-sm-6 rir">
+        <div class="col-md-12 "> <b><strong>Incident Reports</strong></b> </div>
+        <div class="col-sm-6 ">
             <div class="card text-center">
                 <div class="card-header">
                   Featured
@@ -84,7 +138,7 @@
                 </div>
               </div>
         </div>
-        <div class="col-sm-6 rir">
+        <div class="col-sm-6 ">
             <div class="card text-center">
                 <div class="card-header">
                   Featured
@@ -114,15 +168,15 @@
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
                   <p class="carouselTitle">police</p>
-            <img src="../assets/images/popo.jpg" style="width: 100%; height: 88%;"  alt="First slide">
+            <img src="assets/images/popo.jpg" style="width: 100%; height: 88%;"  alt="First slide">
           </div>
           <div class="carousel-item">
                   <p class="carouselTitle">know your Rights</p>
-            <img src="../assets/images/alex.jpg" style="width: 100%; height:89%;" alt="Second slide">
+            <img src="assets/images/alex.jpg" style="width: 100%; height:89%;" alt="Second slide">
           </div>
           <div class="carousel-item">
                   <p class="carouselTitle"></p>
-            <img  src="../assets/images/ken.jpg"  style="width: 100%; height: 89%;" alt="Third slide">
+            <img  src="assets/images/ken.jpg"  style="width: 100%; height: 89%;" alt="Third slide">
           </div>
         </div>
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">

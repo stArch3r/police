@@ -161,6 +161,8 @@ class ReportController extends Controller
         ]);
     }
 
+
+    
     /**
      * Deletes an existing Report model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

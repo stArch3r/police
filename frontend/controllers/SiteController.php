@@ -1,5 +1,6 @@
 <?php
 namespace frontend\controllers;
+use yii\db\Query;
 
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
@@ -14,7 +15,11 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-
+use yii\data\ArrayDataProvider;
+ use yii\frontend\models\County;
+ use frontend\models\Report;
+ use yii\data\ActiveDataProvider;
+ use yii\web\ForbiddenHttpException;
 /**
  * Site controller
  */
@@ -45,7 +50,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['get'],
                 ],
             ],
         ];
@@ -74,9 +79,48 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        {
+            
+    $report =(new Query())
+    ->select([
+        'reportId as reportId',
+        'userId as userId',
+        'title as title',
+        'county as county',
+        'createdAt as createdAt',
+
+    ])
+    ->from('report')
+    ->indexBy('reportId')
+    
+     ->all();
+           
+            $dataProvider = new ActiveDataProvider([
+                // 'query'=> report::find()->groupBy('County'),
+                'query' => Report::find()->orderBy([ 'reportId' => SORT_DESC]),
+                'pagination' =>false
+            ]);
+        }
+        return $this->render('index',[
+            'report'=> $report,
+           
+              'dataProvider' => $dataProvider
+        ]);
+        
+        
     }
 
+    // public function actionPie()	{
+
+    //     $dataProvider = new ActiveDataProvider([
+    //         'query' => County::find()->orderBy(['countyId' => SORT_DESC]),
+    //         'pagination' => false
+    //     ]);
+        
+    //     return $this->render('pie', [
+    //         'dataProvider' => $dataProvider
+    //     ]);
+    // }
     /**
      * Logs in a user.
      *
@@ -211,7 +255,31 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+    public function actionList()
 
+    {
+        
+
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['/site/login']);
+        } else {
+            if(Yii::$app->user->can('user')){
+                $query = Report::find()
+                ->where(['userId' => Yii::$app->user->id]);
+                $dataProvider = new ActiveDataProvider([
+                    'query' => $query,
+                    'pagination' => [
+                        'pageSize' => 5,
+                    ],
+                ]);
+                return $this->render('list',[
+                    'dataProvider' => $dataProvider
+                ]);
+            } else {
+                throw new ForbiddenHttpException(Yii::t('app', 'You do not have sufficient priviledges.'));
+            }
+        }
+    }
     /**
      * Verify email address
      *

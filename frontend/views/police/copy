@@ -76,26 +76,7 @@ $county = ArrayHelper::map(County::find()->all(), 'countyId', 'countyName');
 
 
 
-     public function saveVideo($reportId,$imagedata)
-     {
-          $model = new Photos();
-          if($model->load(["Video"=>['video'=>$imagedata['video']]])){
-              //generates images with unique names
-              $imageName = bin2hex(openssl_random_pseudo_bytes(10));
-              $model->imagePath = UploadedFile::getInstance($model, 'video');
-              //saves file in the root directory
-              $model->imagePath->saveAs('uploads/'.$videoName.'.'.$model->video>extension);
-              //save in the db
-              $model->imagePath='uploads/'.$Name.'.'.$model->video->extension;
-              $model->reportId = $reportId;
-              $model->save(false);
-         //  if
-         //      ($model->save(false)){
-         //          return true;
-         //      }
-          }
-          return false;
-      }
+    
  
     }
 

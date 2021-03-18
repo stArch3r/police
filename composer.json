@@ -26,7 +26,8 @@
         "kartik-v/yii2-widget-fileinput": "dev-master",
         "devgroup/yii2-dropzone": "^1.0",
         "perminder-klair/yii2-dropzone": "dev-master",
-        "2amigos/yii2-file-upload-widget": "~1.0"
+        "2amigos/yii2-file-upload-widget": "~1.0",
+        "sjaakp/yii2-gcharts": "^1.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

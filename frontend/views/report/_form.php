@@ -18,9 +18,11 @@ $country = ArrayHelper::map(Countries::find()->all(), 'countryId', 'countryName'
 $county = ArrayHelper::map(County::find()->all(), 'countyId', 'countyName');
 $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
 ?>
- <section id="main-content">
 
-<div class="report-form">
+
+ 
+
+<div class="report-form malindi">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -36,14 +38,18 @@ $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     </div>
     </div>
-
+<div class="row">
+    <div class="col-md-6">
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    </div>
+</div>
+   
 
     <?= $form->field($model, 'createdAt')->hiddenInput(['value'=>date('Y-m-d H:i:s')])->label(false) ?>
 
 
     <div class="form-row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-3">
 
     <?= $form->field($model, 'county')->dropDownlist($county) ?>
     </div>
@@ -63,8 +69,12 @@ $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
                    <?= $form->field($video, 'video')->fileInput() ?>
 </div>
 
-
+<div class="row">
+    <div class="col-md-2">
     <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
+    </div>
+</div>
+   
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

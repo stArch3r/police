@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "871658bc8d0f29808d186488638b7b7a",
+    "content-hash": "89902f6edc75732c37de155d01a599c8",
     "packages": [
         {
             "name": "2amigos/yii2-arrayquery-component",
@@ -1353,6 +1353,55 @@
                 "source": "https://github.com/rmrevin/yii2-fontawesome"
             },
             "time": "2017-01-11T14:05:47+00:00"
+        },
+        {
+            "name": "sjaakp/yii2-gcharts",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sjaakp/yii2-gcharts.git",
+                "reference": "caf7ca1ca052f0ec8192bd8c78aab5bb5ee1ec6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sjaakp/yii2-gcharts/zipball/caf7ca1ca052f0ec8192bd8c78aab5bb5ee1ec6d",
+                "reference": "caf7ca1ca052f0ec8192bd8c78aab5bb5ee1ec6d",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "sjaakp\\gcharts\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sjaak Priester",
+                    "email": "sjaak@sjaakpriester.nl",
+                    "homepage": "http://sjaakpriester.nl"
+                }
+            ],
+            "description": "Google Charts the Yii 2.0 way",
+            "keywords": [
+                "charts",
+                "extension",
+                "visualization",
+                "widget",
+                "yii",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/sjaakp/yii2-gcharts/issues",
+                "source": "https://github.com/sjaakp/yii2-gcharts/tree/master"
+            },
+            "time": "2017-09-17T11:41:34+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
