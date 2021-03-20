@@ -16,12 +16,13 @@ class AppAsset extends AssetBundle
       
         'css/style.css',
         'css/site.css',
+        'css/tagsinput.css'
         
         
     ];
     public $js = [
 
-     
+     'js/tagsinput.js',
        
 
     ];

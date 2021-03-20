@@ -20,6 +20,7 @@ use yii\data\ArrayDataProvider;
  use frontend\models\Report;
  use yii\data\ActiveDataProvider;
  use yii\web\ForbiddenHttpException;
+ 
 /**
  * Site controller
  */
@@ -229,6 +230,7 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
 
     /**
      * Resets password.

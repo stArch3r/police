@@ -1,6 +1,13 @@
 <?php
 use yii\helpers\Html;
 use yii\grid\GridView;
+use frontend\models\Report;
+use yii\widgets\Pjax;
+
+/* @var $searchModel frontend\models\ReportSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$totalReport = Report::find()->asArray()->all();
 ?>
 <div class="wrap">
 <style>
@@ -74,9 +81,9 @@ use yii\grid\GridView;
       
             <div class="col-md-4 data">
                 <div class="card see" style="width: 18rem; margin-left: 3em;">
-                    <img src="images/users.png" class="card-img-top" alt="...">
+                    <img src="../assets/images/report.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text"> 700 applications.</p>
+                      <p class="card-text"> <i class="fas fa-file"></i>Total Reports <?= count($totalReport)?></p>
                     </div>
                   </div>
 
@@ -85,19 +92,24 @@ use yii\grid\GridView;
               
             <!----------------------------------------------------------Table--------------------------------------------------->
     <div class="container see">
-
+    <?php pjax:: begin(); ?>
     <?= GridView::widget([
         'dataProvider'=> $dataProvider,
+     
         'columns'=>[
             'userId',
             'reportId',
               'title',
               'county',
               'createdAt',
+              
+              
 
         ]
+        
 
     ])?>
+    <?php pjax::end(); ?>
         <!-- <table class="table table-hover table-responsive-sm " >
             <thead>
                 <tr class="table-active">

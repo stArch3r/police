@@ -20,7 +20,7 @@ $report = Report::find()->joinWith('photos')->all();
 ?>
 
 <div class="list-history">
-    <h4 class="mb-3"> Donation history </h4>
+    <h4 class="mb-3"> Incident history </h4>
     <?= ListView::widget([
     'dataProvider' => $dataProvider,
     'itemView' => 'listView',
@@ -86,4 +86,4 @@ $report = Report::find()->joinWith('photos')->all();
  ===== MAIN JS ===== -->
 
 
-</html> -->
+</html> 

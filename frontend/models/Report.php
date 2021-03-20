@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use yii\data\ActiveDataProvider;
 
 /**
  * This is the model class for table "report".
@@ -30,6 +31,11 @@ class Report extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'report';
+    }
+
+    public static function find()
+    {
+        return new \common\models\query\ReportQuery(get_called_class());
     }
 
     /**
@@ -77,6 +83,7 @@ class Report extends \yii\db\ActiveRecord
         return $this->hasMany(Photos::className(), ['reportId' => 'reportId']);
     }
 
+    
     /**
      * Gets query for [[Country0]].
      *

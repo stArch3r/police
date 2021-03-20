@@ -1,14 +1,21 @@
 <?php
 
 namespace frontend\controllers;
+use Yii;
 use frontend\models\User;
 use yii\db\Query;
 use yii\data\ArrayDataProvider;
+use yii\web\Controller;
+use frontend\models\ReportSearch;
+use frontend\models\Report;
+
 
 class PoliceController extends \yii\web\Controller
 {
     public function actionIndex()
+
     {
+        
         return $this->render('index');
     }
     public function actionData()
@@ -28,10 +35,22 @@ class PoliceController extends \yii\web\Controller
     // }
 public function actionReport()
 {
-    return $this->render('report');
+    $searchModel = new ReportSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    return $this->render('report', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+    ]);
+    
+    
+
+
 }
 public function actionDashboard()
 {
+    
+        
     $reportList =(new Query())
     ->select([
         'reportId as reportId',
@@ -46,6 +65,7 @@ public function actionDashboard()
      ->all();
      $dataProvider = new ArrayDataProvider([
          'allModels'=> $reportList,
+        
          'sort' => [
              'attributes'=>['reportId', 'userId', 'county', 'createdAt'],
          ],

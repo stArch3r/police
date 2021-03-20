@@ -14,6 +14,8 @@ use dosamigos\fileupload\FileUploadUI;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Report */
 /* @var $form yii\widgets\ActiveForm */
+
+\frontend\assets\TagsInputAsset::register($this);
 $country = ArrayHelper::map(Countries::find()->all(), 'countryId', 'countryName');
 $county = ArrayHelper::map(County::find()->all(), 'countyId', 'countyName');
 $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
@@ -61,8 +63,7 @@ $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
   <div class="panel-body">
 
            		<?= $form->field($photos, 'imagePath')->fileInput() ?>
-                   <?= $form->field($photos, 'imagePath')->fileInput() ?>
-
+                  
 </div>
 
                    <div class="form-group">
@@ -71,7 +72,11 @@ $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
 
 <div class="row">
     <div class="col-md-2">
-    <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'tags', [
+                'inputOptions' => ['data-role' => 'tagsinput']
+            ])->textInput(['maxlength' => true]) ?>
+
+        </div>
     </div>
 </div>
    

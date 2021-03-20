@@ -1,4 +1,15 @@
 <?php
+use yii\helpers\Html;
+use frontend\models\Report;
+use frontend\models\Photos;
+use frontend\models\Video;
+use yii\widgets\ListView;
+
+$title= Report::find()->asArray()->all();
+$report = Report::find()->joinWith('photos')->all();
+$photos= Report::find()->joinWith('photos')->all();
+$video = Report::find()->joinWith('videos')->all();
+
 ?>
 
 <title>jasiri</title>
@@ -7,9 +18,9 @@
     
 </head>
 
-<body id="body-pd">
+<body>
   
-    <div class="row">
+     <div class="row">
         <div class="col-sm-12">
 
             <div class="row">
@@ -20,9 +31,11 @@
                 <div class="card" style="width: 18rem;">
                     <img src="../assets/images/head.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Kahawa</h5>
+
+                    
+                      <h5 class="card-title">mombasa</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="http://localhost/police/police/report" class="btn btn-primary">read more</a>
+                      <a href="" class="btn btn-primary"> </a>
                     </div>
                   </div>
                   <div class="card" style="width: 18rem; margin-top: 9px;">
@@ -30,7 +43,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Nyali</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="http://localhost/police/police/report" class="btn btn-primary">read more</a>
+                      <a href="?= Html::a('Link', ['/police/reports']); ?>" class="btn btn-primary">read more</a>
                     </div>
                   </div>
                   <div class="card" style="width: 18rem; margin-top: 9px;">
@@ -45,7 +58,14 @@
             <div class="col-sm-7" style="margin-top: 9px;">
             <div class="container" style="background-color: rgb(204, 214, 201);">
                 <div class="row">
-                    <H1>
+                
+         <?php echo \yii\widgets\ListView::widget([
+         'dataProvider' => $dataProvider,
+          'itemView' => 'item'
+         ])
+          ?>
+
+                    <!-- <H1>
                         Karen C incident report
                     </H1>
                     <div class="col-xs-4">
@@ -60,24 +80,25 @@ Nam semper, tortor quis eleifend facilisis, velit nibh tincidunt sem, nec rutrum
 
 Vestibulum a rhoncus lorem. Aliquam at lorem id ex imperdiet varius eu quis orci. Quisque enim est, lobortis egestas quam vel, facilisis fringilla ante. Donec lobortis faucibus lacus. Praesent lacinia, urna et commodo ultrices, elit est dapibus lacus, eu consequat ipsum turpis ac magna. Nam sed pellentesque tellus. Sed at fringilla libero, in lacinia dolor.
             </p>
+  
              <div class="row">
                  <div class="col">
-                     <img src="../assets/images/popo 1.jpg" alt="" style="width: 510px;">
-
+                 <img src="?=Yii::$app->request->baseUrl.'/'.$image->photos[0]->imagePath?>" style="height:100; width:100" alt="">
+ 
                  </div>
-                 <div class="col">
-                     <img src="../assets/images/bbl.jpg" alt="" style="width: 510px; margin-top: 10px;;" >
-                 </div>
+                
+                 
              </div>
-           </article>
+          
+           </article> -->
                     </div>
 
                 </div>
             </div>
-
+</div>
             </div>
             </div>
-</body>
+</body> -->
 
 
 </html>

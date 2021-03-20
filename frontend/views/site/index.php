@@ -153,7 +153,7 @@ document.getElementById('large').addEventListener('click', () => {
 <div class="row">
     <div class="col-md-6 juu">
     <div class="card mb-3">
-  <img class="card-img-top" src="assets/images/head.png" alt="Card image cap">
+  <img class="card-img-top" src="../assets/images/head.png" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -163,7 +163,7 @@ document.getElementById('large').addEventListener('click', () => {
     </div> 
     <div class="col-md-6 juu" juu>
     <div class="card mb-3">
-  <img class="card-img-top" src="assets/images/head.png" alt="Card image cap">
+  <img class="card-img-top" src="../assets/images/head.png" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -184,15 +184,15 @@ document.getElementById('large').addEventListener('click', () => {
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
                   <p class="carouselTitle">police</p>
-            <img src="assets/images/popo.jpg" style="width: 100%; height: 88%;"  alt="First slide">
+            <img src="../assets/images/popo.jpg" style="width: 100%; height: 88%;"  alt="First slide">
           </div>
           <div class="carousel-item">
                   <p class="carouselTitle">know your Rights</p>
-            <img src="assets/images/alex.jpg" style="width: 100%; height:89%;" alt="Second slide">
+            <img src="../assets/images/alex.jpg" style="width: 100%; height:89%;" alt="Second slide">
           </div>
           <div class="carousel-item">
                   <p class="carouselTitle"></p>
-            <img  src="assets/images/ken.jpg"  style="width: 100%; height: 89%;" alt="Third slide">
+            <img  src="../assets/images/ken.jpg"  style="width: 100%; height: 89%;" alt="Third slide">
           </div>
         </div>
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">

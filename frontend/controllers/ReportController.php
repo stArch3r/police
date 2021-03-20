@@ -11,6 +11,8 @@ use yii\filters\VerbFilter;
 use frontend\models\Photos;
 use yii\web\UploadedFile;
 use kartik\widgets\FileInput;
+use yii\data\ActiveDataProvider;
+
 
 use frontend\models\Video;
 
@@ -46,6 +48,9 @@ class ReportController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'pagination'=> [
+                'pagesize' => 5,
+            ],
         ]);
     }
 
@@ -138,8 +143,30 @@ class ReportController extends Controller
          //      }
           }
           return false;
-      }
-        
+      
+        }
+
+        public function actionSearch($keyword)
+        {
+            $this->layout = 'main';
+            $query = Report::find();
+           
+            if ($keyword) {
+                $query->byKeyword($keyword)
+                ->orderBy("MATCH(tags,title)
+            AGAINST (:keyword)", ['keyword' => $keyword]);
+            }
+            $dataProvider = new ActiveDataProvider([
+                'query' => $query
+            ]);
+            
+            return $this->render('search', [
+                'dataProvider' => $dataProvider
+            ]);
+        }
+    
+
+
     /**
      * Updates an existing Report model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -161,8 +188,7 @@ class ReportController extends Controller
         ]);
     }
 
-
-    
+ 
     /**
      * Deletes an existing Report model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

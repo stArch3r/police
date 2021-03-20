@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -39,47 +40,72 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Jasiri</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Jasiri</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+  
+      <li class="nav-item active">
+        <a class="nav-link" href="<?=Url::to(['site/index'])?>">Jasiri <span class="sr-only">(current)</span></a>
+      </li>
+    
         <li class="nav-item">
-        <a class="nav-link" href="http://localhost/police">home</a>
+        <a class="nav-link" href="<?=Url::to(['/police/report'])?>">Featured </a>
         </li>
+
         <li class="nav-item">
-        <a class="nav-link" href="http://localhost/police/police/report">report</a>
-        </li>
-        
-        <li class="nav-item">
-        <a class="nav-link" href="http://localhost/police/report/create">make new report</a>
+        <a class="nav-link" href="<?=Url::to(['site/list'])?>">list</a>
         </li>
                
         <li class="nav-item">
-        <a class="nav-link" href="http://localhost/police/police/data">data</a>
+        <a class="nav-link" href="<?=Url::to(['police/data'])?>">data</a>
         </li>
-                
+      
+
+
+      <?php if(Yii::$app->User->can('user')){?>
         <li class="nav-item">
-        <a class="nav-link" href="http://localhost/police/police/dashboard">dashboard</a>
+        <a class="nav-link" href="<?=Url::to(['report/create'])?>">make new report</a>
         </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h5 font-family: "sans-serif", style="color:#000000; mr-sm-0">My-Account</h5></a>
+        <?php }?>  
+               
+        <?php if(Yii::$app->User->can('admin')){?>     
+        <li class="nav-item">
+        <a class="nav-link" href="<?=Url::to(['police/dashboard'])?>">dashboard</a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="<?=Url::to(['report/index'])?>">manage reports</a>
+        </li>
+        <?php }?>  
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          acccount
+        </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="http://localhost/police/site/login">login</a>
-          <a class="dropdown-item" href="http://localhost/police/site/signup">signup</a>
+        <a class="dropdown-item" href="<?=Url::to(['site/login'])?>">login</a>
+          <a class="dropdown-item" href="<?=Url::to(['site/signup'])?>">signup</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="http://localhost/police/site/logout"  >log out</a>
+          <a class="dropdown-item" href="<?=Url::to(['site/logout'])?>">log out</a>
         </div>
       </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
+
+
+    </ul>
+    
+    <form action="<?php echo Url::to(['/report/search']) ?>"
+        class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search"
+           name="keyword"
+           value="<?php echo Yii::$app->request->get('keyword') ?>">
+    <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+  </form>
+
   </div>
 </nav>
 
