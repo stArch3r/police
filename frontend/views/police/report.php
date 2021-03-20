@@ -5,7 +5,7 @@ use frontend\models\Photos;
 use frontend\models\Video;
 use yii\widgets\ListView;
 
-$title= Report::find()->asArray()->all();
+
 $report = Report::find()->joinWith('photos')->all();
 $photos= Report::find()->joinWith('photos')->all();
 $video = Report::find()->joinWith('videos')->all();
