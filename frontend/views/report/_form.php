@@ -26,7 +26,7 @@ $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
 
 <div class="report-form malindi">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['id' => 'reportId']); ?>
 
    
     <div class="row">
@@ -89,5 +89,30 @@ $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
 
 </div>
 
+<script>
+$('(form#{$model->formName()})'.on('beforeSubmit', function(e))
+{
+    var\$form =$(this);
+    $.post(
+        \$form.attr("action"),
+        \$form.serialize()
 
-</section>
+    )
+    .done(function(result))
+    {
+        if(result==1)
+        $(\$form).trigger("reset");
+        $.pjax.reload({container:'#reportId ' add aync: false});
+
+    }else
+    {
+        $('#message').html(result);
+    }
+}).fail(function()
+{
+    console.log("server error");
+
+});
+return false;
+
+is->registerJS($script);

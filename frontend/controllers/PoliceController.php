@@ -7,7 +7,9 @@ use yii\db\Query;
 use yii\data\ArrayDataProvider;
 use yii\web\Controller;
 use frontend\models\ReportSearch;
+use yii\data\ActiveDataProvider;
 use frontend\models\Report;
+use frontend\models\County;
 
 
 class PoliceController extends \yii\web\Controller
@@ -20,12 +22,31 @@ class PoliceController extends \yii\web\Controller
     }
     public function actionData()
     {
-        return $this->render('data');
+        $dataProvider = new ActiveDataProvider([
+            'query' => Report::find(),
+            'pagination' => false   // ensure all towers will appear on map
+        ]);
+            // ...
+        return $this->render('data', [
+            'dataProvider' => $dataProvider,
+            // ...
+        ]);
+       
     }
-    public function actionFull()
-    {
-        return $this->render('full');
+
+
+    public function actionLocator() {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Report::find()->joinWith('county0')->all(),
+            'pagination' => false   // ensure all towers will appear on map
+        ]);
+            // ...
+        return $this->render('locator', [
+            'dataProvider' => $dataProvider,
+            // ...
+        ]);
     }
+
     
 
 
@@ -38,15 +59,30 @@ public function actionReport()
     $searchModel = new ReportSearch();
     $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+    if(Yii::$app->user->can('user','admin')){
+        $query = Report::find()
+        ->where(['userId' => Yii::$app->user->id]);
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 3,
+            ],
+        ]);
+
+
     return $this->render('report', [
         'searchModel' => $searchModel,
         'dataProvider' => $dataProvider,
+        
     ]);
     
     
 
 
 }
+
+}
+
 public function actionDashboard()
 {
     
@@ -70,7 +106,7 @@ public function actionDashboard()
              'attributes'=>['reportId', 'userId', 'county', 'createdAt'],
          ],
          'pagination'=> [
-             'pagesize' => 5,
+             'pagesize' => 4,
          ],
      ]);
 

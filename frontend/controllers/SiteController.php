@@ -93,7 +93,6 @@ class SiteController extends Controller
     ])
     ->from('report')
     ->indexBy('reportId')
-    
      ->all();
            
             $dataProvider = new ActiveDataProvider([
@@ -265,7 +264,7 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['/site/login']);
         } else {
-            if(Yii::$app->user->can('user')){
+            if(Yii::$app->user->can('user','admin')){
                 $query = Report::find()
                 ->where(['userId' => Yii::$app->user->id]);
                 $dataProvider = new ActiveDataProvider([

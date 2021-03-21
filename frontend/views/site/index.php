@@ -55,7 +55,9 @@ $report = Report::find()->joinWith('photos')->all();
                             'pk.eyJ1Ijoia2VubXVuZW5lIiwiYSI6ImNrbGFmaXpvYjBrdXUydnM4Y2wzeWFtaHUifQ.TYNHNVNrfF0OKuDQ58ulAw';
                         var map = new mapboxgl.Map({
                             container: 'map',
-                            style: 'mapbox://styles/mapbox/streets-v11'
+                            center: [37.9062, 0.0236],
+                            zoom: 6,
+                            style: 'mapbox://styles/mapbox/dark-v10'
 
                         });
                         map.addControl(new mapboxgl.NavigationControl());
@@ -73,8 +75,8 @@ $report = Report::find()->joinWith('photos')->all();
     'dataProvider' => $dataProvider,
     'columns' => [
         'name:string',
-        'county',
         'report',
+        'county',
     ],
     'options' => [
         'title' => 'county by police cases'
@@ -155,8 +157,8 @@ document.getElementById('large').addEventListener('click', () => {
     <div class="card mb-3">
   <img class="card-img-top" src="../assets/images/head.png" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <h5 class="card-title">Bodeni</h5>
+    <p class="card-text"> The traffic police was seen harrasing memebers of the public</p>
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
 </div>
@@ -165,8 +167,8 @@ document.getElementById('large').addEventListener('click', () => {
     <div class="card mb-3">
   <img class="card-img-top" src="../assets/images/head.png" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <h5 class="card-title">Nairobi </h5>
+    <p class="card-text">A police was seen beating hawkers on Moi avenue sunday night.</p>
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
 </div>
@@ -222,6 +224,7 @@ document.getElementById('large').addEventListener('click', () => {
 <div class="row">
 
         <div class="col-md-12  " style="margin-top: 35px;">
+        <h3> <b> Our Partners</b></h3>
             <div id="accordion">
                 <div class="card">
                   <div class="card-header" id="headingOne">
@@ -234,7 +237,9 @@ document.getElementById('large').addEventListener('click', () => {
               
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    Our mission is to foster human rights, democratic values, human dignity and social justice.
+
+This will be achieved through multiple strategies and actions aimed at entrenching human rights and democratic values in the soceity by facilitating and supporting individuals, communities and groups to claim and defend their rights and holding state and non-state actors accountable for the protection and respect of all human rights for all peoples and groups.
                     </div>
                   </div>
                 </div>
@@ -248,7 +253,7 @@ document.getElementById('large').addEventListener('click', () => {
                   </div>
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    The IPOA Act mandates the Authority to undertake the following key functions: To investigate deaths and serious injuries caused by police action. To investigate police misconduct. To monitor, review and audit investigations and actions by internal affairs unit of the police..
                     </div>
                   </div>
                 </div>
@@ -256,13 +261,15 @@ document.getElementById('large').addEventListener('click', () => {
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                   Kenya Police serive 
+                      AMNESTY INTERNATIONAL
                       </button>
                     </h5>
                   </div>
                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    Amnesty International is an organization dedicated to securing human rights all over the world. For more than 50 years, AI has been a force for change organizing demonstrations, letter writing campaigns, awareness initiatives, vigils and more to end grave abuses and injustices inflicted on people every day.
+
+AI proudly boasts more than 8 million supporters, members and activists in over 150 countries and territories. Their unwavering dedication allows us to truly make a difference in the lives of thousands of men, women and children.
                     </div>
                   </div>
                 </div>

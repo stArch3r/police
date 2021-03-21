@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89902f6edc75732c37de155d01a599c8",
+    "content-hash": "08f2c681bd768cde3b66c62b7de7e1ac",
     "packages": [
         {
             "name": "2amigos/yii2-arrayquery-component",
@@ -1175,23 +1175,22 @@
         },
         {
             "name": "kartik-v/yii2-widget-fileinput",
-            "version": "dev-master",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
-                "reference": "e15d65047af23a3cf25e47e8c23444e750a27f2c"
+                "reference": "d43bb9d9638ba117bbaa0045250645dc843fcf7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/e15d65047af23a3cf25e47e8c23444e750a27f2c",
-                "reference": "e15d65047af23a3cf25e47e8c23444e750a27f2c",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/d43bb9d9638ba117bbaa0045250645dc843fcf7f",
+                "reference": "d43bb9d9638ba117bbaa0045250645dc843fcf7f",
                 "shasum": ""
             },
             "require": {
                 "kartik-v/bootstrap-fileinput": ">=5.0.0",
                 "kartik-v/yii2-krajee-base": ">=2.0.0"
             },
-            "default-branch": true,
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
@@ -1229,7 +1228,7 @@
             ],
             "support": {
                 "issues": "https://github.com/kartik-v/yii2-widget-fileinput/issues",
-                "source": "https://github.com/kartik-v/yii2-widget-fileinput/tree/master"
+                "source": "https://github.com/kartik-v/yii2-widget-fileinput/tree/v1.1.0"
             },
             "funding": [
                 {
@@ -1237,7 +1236,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-12-05T15:43:43+00:00"
+            "time": "2020-10-23T19:54:51+00:00"
         },
         {
             "name": "npm-asset/bootstrap",
@@ -1402,6 +1401,110 @@
                 "source": "https://github.com/sjaakp/yii2-gcharts/tree/master"
             },
             "time": "2017-09-17T11:41:34+00:00"
+        },
+        {
+            "name": "sjaakp/yii2-locator",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sjaakp/yii2-locator.git",
+                "reference": "ada0c4fa675109b6b275f984efe796e4c0e1980b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sjaakp/yii2-locator/zipball/ada0c4fa675109b6b275f984efe796e4c0e1980b",
+                "reference": "ada0c4fa675109b6b275f984efe796e4c0e1980b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "sjaakp\\locator\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sjaak Priester",
+                    "email": "sjaak@sjaakpriester.nl",
+                    "homepage": "https://sjaakpriester.nl"
+                }
+            ],
+            "description": "Leaflet-wrapper for Yii2.x",
+            "keywords": [
+                "extension",
+                "geo",
+                "leaflet",
+                "map",
+                "widget",
+                "yii",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/sjaakp/yii2-locator/issues",
+                "source": "https://github.com/sjaakp/yii2-locator/tree/1.0.3"
+            },
+            "time": "2021-01-27T14:46:04+00:00"
+        },
+        {
+            "name": "sjaakp/yii2-spatial",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sjaakp/yii2-spatial.git",
+                "reference": "24b8fe9bfaa9016e91c253f28eb92285dda72170"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sjaakp/yii2-spatial/zipball/24b8fe9bfaa9016e91c253f28eb92285dda72170",
+                "reference": "24b8fe9bfaa9016e91c253f28eb92285dda72170",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "sjaakp\\spatial\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sjaak Priester",
+                    "email": "sjaak@sjaakpriester.nl",
+                    "homepage": "http://sjaakpriester.nl"
+                }
+            ],
+            "description": "Yii2 ActiveRecord supporting MySQL spatial data",
+            "keywords": [
+                "data",
+                "db",
+                "extension",
+                "geo",
+                "map",
+                "mysql",
+                "spatial",
+                "yii",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/sjaakp/yii2-spatial/issues",
+                "source": "https://github.com/sjaakp/yii2-spatial/tree/master"
+            },
+            "time": "2019-05-19T18:22:10+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6540,7 +6643,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "kartik-v/yii2-nav-x": 20,
-        "kartik-v/yii2-widget-fileinput": 20,
         "perminder-klair/yii2-dropzone": 20
     },
     "prefer-stable": false,

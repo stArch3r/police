@@ -8,6 +8,9 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $totalReport = Report::find()->asArray()->all();
+$report = Report::find()->joinWith('photos')->all();
+$photos= Report::find()->joinWith('photos')->all();
+$video = Report::find()->joinWith('videos')->all();
 ?>
 <div class="wrap">
 <style>
@@ -26,56 +29,35 @@ $totalReport = Report::find()->asArray()->all();
                     <div class="card see" style="width: 18rem; margin-top: 3em; margin-left: 3em;">
                         <img src="https://img.icons8.com/color/48/000000/fire-alarm-button.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                          <p class="card-text">pending cases</p>
+                          <p class="card-text">New cases</p>
                         </div>
                       </div>
                       <div class="card see" style="width: 18rem; margin-top: 3em; margin-left: 3em;">
                         <img src="https://img.icons8.com/color/48/000000/fire-alarm-button.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                          <p class="card-text">pending cases</p>
+                          <p class="card-text">New cases</p>
                         </div>
                       </div>
     
                 </div>
             <div class="col-md-8  juu">
-                                                                    
-                <div class="card w-75 season">
+
+            <h3>New in reports summary</h3>       
+                       <?php foreach($report as $list)   {?>
+                                          
+                                  
+                <div class="card w-75 juu">
                     <div class="card-body">
-                      <h5 class="card-title">Bamburi</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="listView.html" class="btn btn-danger">approve</a>
-                      <a href="listView.html" class="btn btn-success">reject</a>
-                    </div>
-                  </div>
-                                                                      
-                  <div class="card w-75 juu">
-                    <div class="card-body">
-                      <h5 class="card-title">Bamburi</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="listView.html" class="btn btn-danger">approve</a>
-                      <a href="listView.html" class="btn btn-success">reject</a>
-                    </div>
-                  </div>
-                                                                      
-                  <div class="card w-75 juu">
-                    <div class="card-body">
-                      <h5 class="card-title">Bamburi</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="listView.html" class="btn btn-danger">approve</a>
-                      <a href="listView.html" class="btn btn-success">reject</a>
+                      <h5 class="card-title"><?=$list->title ?></h5>
+                      <p class="card-text"><?=$list->description ?></p>
+                      <p class="card-text"><?=$list->createdAt ?></p>
                     </div>
                   </div>
 
-                
-                    <div class="card w-75 juu">
-                        <div class="card-body">
-                          <h5 class="card-title">Bamburi</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="listView.html" class="btn btn-danger">approve</a>
-                      <a href="listView.html" class="btn btn-success">reject</a>
-                        </div>
-                      </div>
-                </div>
+                  <?php }?>
+                                                                      
+       </div>
+                                                                      
         </div>
     <div class="row" style="margin-top: 3em;">
       
