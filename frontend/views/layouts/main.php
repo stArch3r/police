@@ -66,9 +66,8 @@ AppAsset::register($this);
         <a class="nav-link" href="<?=Url::to(['police/data'])?>">data</a>
         </li>
       
-
-
-      <?php if(Yii::$app->User->can('user')){?>
+      <?php if(Yii::$app->User->can('user'))
+      {?>
         <li class="nav-item">
         <a class="nav-link" href="<?=Url::to(['report/create'])?>">make new report</a>
         </li>
@@ -160,12 +159,7 @@ AppAsset::register($this);
             </div>
   
             <div class="col-md-4 col-sm-6 col-xs-12">
-              <ul class="social-icons">
-                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-              </ul>
+
             </div>
           </div>
         </div>

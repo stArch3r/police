@@ -50,6 +50,10 @@ a.asc:after, a.desc:after {
 a.asc:after {
     content: "\e151";
 }
+.picha{
+    width: 100px;
+    height: 89px;
+}
 
 
 a.desc:after {

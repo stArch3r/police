@@ -59,9 +59,8 @@ public function actionReport()
     $searchModel = new ReportSearch();
     $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-    if(Yii::$app->user->can('user','admin')){
-        $query = Report::find()
-        ->where(['userId' => Yii::$app->user->id]);
+    if(Yii::$app->user->can('viewReport')){
+        $query = Report::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [

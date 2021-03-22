@@ -264,9 +264,8 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['/site/login']);
         } else {
-            if(Yii::$app->user->can('user','admin')){
-                $query = Report::find()
-                ->where(['userId' => Yii::$app->user->id]);
+            if(Yii::$app->user->can('user')){
+                $query = Report::find();
                 $dataProvider = new ActiveDataProvider([
                     'query' => $query,
                     'pagination' => [

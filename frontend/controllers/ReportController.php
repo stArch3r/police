@@ -11,7 +11,7 @@ use frontend\models\Photos;
 use yii\web\UploadedFile;
 use kartik\widgets\FileInput;
 use yii\data\ActiveDataProvider;
-
+use yii\helpers\Url;
 
 use frontend\models\Video;
 
@@ -84,11 +84,11 @@ class ReportController extends Controller
         // }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if($this->saveImage($model->reportId,Yii::$app->request->post()['Photos'])){
-                return $this->redirect(['views/police/index']);
+                return $this->redirect(Url::to(['police/index']));
             }
             else{
                 if($this->saveVideo($model->reportId,Yii::$app->request->post()['Video'])){
-                    return $this->redirect(['views/police/index']);
+                    return $this->redirect(Url::to(['police/index'])) ;
                 }
             }
           

@@ -89,30 +89,40 @@ $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
 
 </div>
 
-<script>
-$('(form#{$model->formName()})'.on('beforeSubmit', function(e))
-{
-    var\$form =$(this);
+<!-- <script>
+
+$('(form#{$model->formName()})'.on('beforeSubmit', function(e)
+ 
+  {
+    var $form =$(this);
     $.post(
-        \$form.attr("action"),
-        \$form.serialize()
+        $form.attr("action"),
+        $form.serialize()
 
     )
-    .done(function(result))
+    .done(function(result)
     {
-        if(result==1)
-        $(\$form).trigger("reset");
-        $.pjax.reload({container:'#reportId ' add aync: false});
+        if(result==1){
+        
+        $($form).trigger("reset");
+        $.pjax.reload({container:'#reportId ', timeout: false});
 
-    }else
+    }
+      else
     {
         $('#message').html(result);
     }
+    
 }).fail(function()
 {
     console.log("server error");
 
 });
 return false;
+on('submit', function(e){
+    e.preventDefault();
+});  
+registerJS($script);
 
-is->registerJS($script);
+
+</script> -->
